@@ -2,27 +2,111 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Flat UI Template</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="dist/css/flat-ui.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+  <style>
+    .nav-wrapper {
+      height: 70px;
+      background: #85bffa;
+      line-height: 70px;
+      font-size: 32px;
+      color: #ffffff;
+      padding: 0 40px;
+    }
+
+    .badge {
+      background: #3498db;
+      font-size: 32px;
+      border-radius: 50%;
+      padding: 5px 10px;
+    }
+
+    .content-item {
+      padding: 50px;
+    }
+
+    .content-item video {
+      width: 100%;
+    }
+
+    .content-item:nth-last-child(1) {
+      border-left: 2px solid #d4d4d4;
+    }
+  </style>
+
 </head>
 
 <body>
+  <div class="container-fluid">
+    <div class="row nav-wrapper">
+      <div class="nav-item col">
+        <span class="badge">D</span>
+      </div>
+      <div class="nav-item col flex-end" >
+        <span class="badge">Z</span>
+      </div>
+    </div>
+    <div class="content-wrapper row">
+      <div class="content-item col-xs-6">
+        <!-- 放视频的地方 -->
+        <div class="video-wrapper row">
+          <div class="col-xs-12">
+            <div id="localVideo"></div>
+          </div>
+        </div>
+        <!-- 操作栏 -->
+        <div class="row">
+          <div class="col-xs-2">
+            <button type="button" class="btn btn-default" id="startShare">开始分享</button>
+          </div>
+          <div class="col-xs-4">
+            <select id="mode" class="form-control select select-primary select-block mbl">
+              <optgroup label="模式">
+                <option value="0">音频+屏幕</option>
+                <option value="1">音频+视频</option>
+                <option value="2">纯音频</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="col-xs-2">
+            <select class="form-control select select-primary select-block mbl">
+              <optgroup label="麦克风" id="audioDevice">
+              </optgroup>
+            </select>
+          </div>
+          <div class="col-xs-2">
+            <select class="form-control select select-primary select-block mbl">
+              <optgroup label="摄像头" id="videoDevice">
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="content-item col-xs-6">
+        <!-- 放视频的地方 -->
+        <div class="video-wrapper row">
+          <div class="col-xs-12">
+            <div id="remoteVideo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation" style="width: 100%">
-  </nav>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-  <script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-
-  <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
-
-  <script src="dist/scripts/flat-ui.js"></script>
-
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+  <script src="https://sdk-release.qnsdk.com/pili-rtc-web.js"></script>
+  <script src="dist/scripts/flat-ui.min.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>
